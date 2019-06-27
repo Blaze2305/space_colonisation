@@ -6,6 +6,7 @@ class Branch{
         this.Origin=dir;
         this.long=5;
         this.count=0;
+        
     }
 
     reset(){
@@ -19,10 +20,17 @@ class Branch{
         var nextBranch = new Branch(this, nextPos, this.dir.copy());
         return nextBranch;
       }
-    show(){
+    show(i){
         if(this.parent!=null){
-            stroke(255);
+            push();
+            // let root_branch=createVector(width/2,height);
+            // let d=p5.Vector.dist(this.pos,root_branch);
+            // let b=map(d,0,height*sqrt(2),3,0);
+            let b= map(i,0,tree.branches.length,6,1);
+            stroke(255)
+            strokeWeight(b);
             line(this.pos.x,this.pos.y,this.parent.pos.x,this.parent.pos.y);
+            pop();
         }
     }
 }

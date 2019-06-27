@@ -1,7 +1,7 @@
 class Leaf{
     constructor(a){
-        // this.pos=createVector(random(width), random(height-200));
-        this.pos=a;
+        this.pos=createVector(random(100,width-100), random(height-200));
+        // this.pos=a;
         this.reached=false;
     }
 

@@ -8,9 +8,9 @@ class Tree{
 
     // create the leaves ie nodes 
     init(n){
-        // for(let i=0;i<n;i++){
-        //     this.leaves[i]=new Leaf();
-        // }
+        for(let i=0;i<n;i++){
+            this.leaves[i]=new Leaf();
+        }
 
         // create root branch segment
         let root_pos=createVector(width/2, height);
@@ -30,9 +30,6 @@ class Tree{
                 }
             }
             if(!found_leaf){    
-                // let new_branch_dir=p5.Vector.mult(this.current.dir,this.current.long);
-                // let new_branch_pos=p5.Vector.add(this.current.pos,new_branch_dir);
-                // let new_branch=new Branch(this.current,new_branch_pos,this.current.dir);
                 this.current=this.current.next();
                 this.branches.push(this.current);
             }
@@ -83,7 +80,10 @@ class Tree{
           for (var i = this.branches.length - 1; i >= 0; i--) {
             var branch = this.branches[i];
             if (branch.count > 0) {
-              branch.dir.div(branch.count + 1);
+              let rand_vec=p5.Vector.random2D();
+              rand_vec.setMag(0.2)
+              branch.dir.add(rand_vec)
+              branch.dir.div(branch.count + 2);              
               this.branches.push(branch.next());
               branch.reset();
             }
@@ -97,7 +97,7 @@ class Tree{
         }
 
         for(let i=0;i<this.branches.length;i++){
-            this.branches[i].show();
+            this.branches[i].show(i);
         }
     }
 }

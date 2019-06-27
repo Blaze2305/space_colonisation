@@ -1,7 +1,7 @@
 let tree;
-let n=500;
+let n=600;
 let min=5;
-let max=100;
+let max=200;
 let start_button;
 let val;
 
@@ -27,13 +27,16 @@ function draw(){
 }
 
 function run(){
-    val=1;
-    tree.make_tree();
+    if(!val){
+
+        val=1;
+        tree.make_tree();
+    }
 }
 
-function mouseDragged(){
-    let a=createVector(mouseX, mouseY)    
-    tree.leaves.push(new Leaf(a));
+// function mouseDragged(){
+//     let a=createVector(mouseX, mouseY)    
+//     tree.leaves.push(new Leaf(a));
 
     
-}
+// }
